@@ -1,1 +1,71 @@
+*{
+    list-style: none;
+}
 
+header{
+    background-color: black;
+    color: white;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 20px;
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+
+.container{
+    max-width: 700px;
+    margin: auto;
+    font-family: 'Roboto', sans-serif;
+}
+.todo_title{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.todo_search_form form{
+    display: flex;
+    justify-content: space-between;
+}
+.todo_search_form input{
+    width: 80%;
+    height: 25px;
+    padding-left: 4px;
+    border-radius: 3px;
+    outline: none;
+    border: 1px solid grey;
+}
+.todo_search_form button{
+    width: 18%;
+    background-color: darkblue;
+    color: #fff;
+    outline: none;
+    border: transparent;
+    height: 30px;
+    border-radius: 3px;
+}
+.todo_item_list{
+    padding-left: 0;
+}
+.todo_item{
+    width: 100%;
+    border: 1px solid grey;
+    margin-bottom: 3px;
+    display: flex;
+    height: 50px;
+    border-radius: 3px;
+    position: relative;
+}
+.todo_item input{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+.todo_item p {
+    margin-left: 5px;
+}
+.todo_item i{
+    color:tomato;
+    float: right;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    font-size: 20px;
+}
