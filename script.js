@@ -1,6 +1,7 @@
 import UI from './modules/UI.js';
 import ListItem from './modules/ListItem.js';
 import Validator from './modules/Validator.js';
+
 //Event: diplay task-list
 document.addEventListener('DOMContentLoaded', UI.displayListItems);
 
