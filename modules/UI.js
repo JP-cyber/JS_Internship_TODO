@@ -43,7 +43,21 @@ export default class UI {
 
         UI.checkboxHandler();
         UI.deleteButtonHandler();
+        UI.editButtonHandler();
 
+    }
+
+    static currentElement = null;
+
+    static editButtonHandler() {
+        const editBtns = document.querySelectorAll('.edit');
+        const lastEditBtn = editBtns[editBtns.length - 1];
+
+        lastEditBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            UI.toggleModal('.modal-edit');
+            UI.currentElement = e.target.parentElement;
+        });
     }
 
     static deleteButtonHandler() {
@@ -69,8 +83,8 @@ export default class UI {
         input.value = '';
     }
 
-    static clearModalInputs() {
-        const modalInputs = document.querySelector('.modal-content')
+    static clearModalInputs(selector) {
+        const modalInputs = document.querySelector(selector)
         .querySelectorAll('input');
 
         modalInputs.forEach((input) => {

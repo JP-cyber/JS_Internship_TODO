@@ -41,7 +41,7 @@ document.querySelector('#add-btn').addEventListener('click', () => {
 
         UI.addTaskToList(taskObj);
         UI.toggleModal('.modal-add');
-        UI.clearModalInputs();
+        UI.clearModalInputs('.modal-add');
     }
 
 })
@@ -56,3 +56,34 @@ modals.forEach(modal => {
     });
 });
 
+//Event: added possibility to edit element data
+document.querySelector('#edit-btn').addEventListener('click', (e) => {
+    e.preventDefault();
+    const parentListItem = UI.currentElement;
+    
+    //Modal input values
+    let 
+        taskInput = document.querySelector('#task-edit').value,
+        creationDateInput = document.querySelector('#creation-edit').value,
+        expirationDateInput = document.querySelector('#expiration-edit').value;
+
+    const isAllInputsValid = Validator.validate(taskInput)
+    && Validator.validate(creationDateInput)
+    && Validator.validate(expirationDateInput);
+
+    if(isAllInputsValid){
+        //Current item data
+        let
+            task = parentListItem.querySelector('p'),
+            creation = parentListItem.querySelector('.recent-date'),
+            expiration = parentListItem.querySelector('.expiration-date');
+
+        task.textContent = taskInput;
+        creation.textContent = creationDateInput;
+        expiration.textContent = expirationDateInput;
+
+        UI.toggleModal('.modal-edit');
+        UI.clearModalInputs('.modal-edit');
+    }
+    
+});
