@@ -1,6 +1,7 @@
 import UI from './modules/UI.js';
 import ListItem from './modules/ListItem.js';
 import Validator from './modules/Validator.js';
+import ItemDisplayer from './modules/ItemDisplayer.js';
 
 //Event: diplay task-list
 document.addEventListener('DOMContentLoaded', UI.displayListItems);
@@ -86,4 +87,26 @@ document.querySelector('#edit-btn').addEventListener('click', (e) => {
         UI.clearModalInputs('.modal-edit');
     }
     
+});
+
+//Display Items Buttons
+
+//Display all items
+document.querySelector('#display-all').addEventListener('click', () => {
+    ItemDisplayer.displayAllItems();
+});
+
+//Display active items
+document.querySelector('#display-active').addEventListener('click', () => {
+    ItemDisplayer.displayActiveItems();
+});
+
+//Display completed items
+document.querySelector('#display-completed').addEventListener('click', () => {
+    ItemDisplayer.displayCompletedItems();
+});
+
+//Delete all completed items
+document.querySelector('#clear-completed').addEventListener('click', () => {
+    ItemDisplayer.deleteCompletedItems();
 });

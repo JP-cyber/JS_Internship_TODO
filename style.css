@@ -146,6 +146,18 @@ header{
 .modal-cancel{
     background-color:tomato;
 }
+.display-buttons-block{
+    display: flex;
+    justify-content: space-between;
+}
+.display-buttons-block button{
+    background-color: darkblue;
+    color: #fff;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    height: 30px;
+    width: 23%;
+}
 
 .hide{
     display: none;
