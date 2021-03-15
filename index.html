@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <title>TODO List</title>
 </head>
 <body>
@@ -15,28 +16,35 @@
         <div class="todo_title">ToDo List</div>
         <div class="todo_search_form">
             <form>
-                <input type="text" placeholder="New Task...">
-                <button type="submit">Add</button>
+                <input id="main-input" type="text" placeholder="New Task...">
+                <a href="#" id="modal">+</a>
             </form>
         </div>
         <ul class="todo_item_list"> 
-                <li class="todo_item">
-                    <input type="checkbox">
-                    <p>First Item</p>
-                    <i class="fas fa-trash-alt"></i>
-                </li>
-                <li class="todo_item">
-                    <input type="checkbox">
-                    <p>Second Item</p>
-                    <i class="fas fa-trash-alt"></i>
-                </li>
-                <li class="todo_item">
-                    <input type="checkbox">
-                    <p>Third Item</p>
-                    <i class="fas fa-trash-alt"></i>
-                </li>     
+                     
         </ul>
     </div>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    <div class="modal hide">
+        <form class="modal-content">
+            <h1 class="modal-title">Input Data</h1>
+            <label for="task">Input Your Task</label>
+            <p><input type="text" id="task" placeholder="New task..."></p>
+            <label for="creation">Input Creation Date</label>
+            <p><input type="text" id="creation" placeholder="Creation date..."></p>
+            <label for="expiration">Input Expiration Date</label>
+            <p><input type="text" id="expiration" placeholder="Expiration date..."></p>
+            <button id="modal-save">Save</button>
+            <button id="modal-cancel">Cancel</button>
+        </form>
+    </div>
+
+
+
+    <script type="module" src="modules/ListItem.js" ></script>
+    <script type="module" src="modules/DateHandler.js" ></script>
+    <script type="module" src="modules/UI.js" ></script>
+    <script type="module" src="modules/Validator.js" ></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
