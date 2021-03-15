@@ -23,11 +23,11 @@ document.querySelector('form').addEventListener('submit', (e) => {
 
 //Event: show modal on '+' button press
 document.querySelector('#modal').addEventListener('click', () => {
-    UI.toggleModal();
+    UI.toggleModal('.modal-add');
 });
 
 //Event: add item to list on "save" button press
-document.querySelector('#modal-save').addEventListener('click', () => {
+document.querySelector('#add-btn').addEventListener('click', () => {
     const task = document.querySelector('#task').value,
           creationDate = document.querySelector('#creation').value,
           expirationDate = document.querySelector('#expiration').value;
@@ -40,14 +40,19 @@ document.querySelector('#modal-save').addEventListener('click', () => {
         const taskObj = new ListItem(task, creationDate, expirationDate);
 
         UI.addTaskToList(taskObj);
-        UI.toggleModal();
+        UI.toggleModal('.modal-add');
         UI.clearModalInputs();
     }
 
 })
 
 //Event: hide modal on "cancel" button press
-document.querySelector('#modal-cancel').addEventListener('click', () => {
-    UI.toggleModal();
+const modals = document.querySelectorAll('.modal-cancel');
+modals.forEach(modal => {
+    modal.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetModalSelector = e.target.parentElement.parentElement.classList[0];
+        UI.toggleModal( `.${targetModalSelector}` );
+    });
 });
 
