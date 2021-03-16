@@ -121,12 +121,54 @@ document.querySelector('#sort-select').addEventListener('change', (e) => {
 
     if(e.target.value === 'Sort By Text'){
         ItemDisplayer.sortElemntsByText();
-        UI.resetSelect();
+        UI.resetSelect('#sort-select');
     }
 //Sort by date
 
     if(e.target.value === 'Sort By Date'){
         ItemDisplayer.sortElementsByDate();
-        UI.resetSelect();
+        UI.resetSelect('#sort-select');
     }
+});
+
+//Filter items modal behaviour
+
+document.querySelector('#filter-select').addEventListener('change', (e) => {
+    const dateModal = document.querySelector('#filter-date');
+    const textModal = document.querySelector('#filter-text');
+    
+    if(e.target.value === 'Filter By Date'){
+        textModal.querySelector('input').value = '';
+
+        if(!textModal.classList.contains('hide')){
+            UI.toggleModal('#filter-text');
+        }
+        UI.toggleModal('#filter-date');
+        UI.resetSelect('#filter-select');
+    }
+
+    if(e.target.value === 'Filter By Text'){
+        dateModal.querySelector('input').value = '';
+
+        if(!dateModal.classList.contains('hide')){
+            UI.toggleModal('#filter-date');
+        }
+        UI.toggleModal('#filter-text');
+        UI.resetSelect('#filter-select');
+    }
+
+    ItemDisplayer.showAllItems();
+
+});
+
+//Filter items by text
+
+document.querySelector('#filter-text input').addEventListener('input', (e) => {
+    ItemDisplayer.filterElementsByText(e.target.value);
+});
+
+//Filter items by date
+
+document.querySelector('#filter-date input').addEventListener('input', (e) => {
+    ItemDisplayer.filterElementsByDate(e.target.value);
 });
