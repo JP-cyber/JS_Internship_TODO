@@ -133,3 +133,8 @@ header{
 .hide{
     display: none;
 }
+
+.done{
+    color: lightgray;
+    text-decoration: line-through;
+}

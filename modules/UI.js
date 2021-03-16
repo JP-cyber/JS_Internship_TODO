@@ -33,13 +33,25 @@ export default class UI {
             Creation Date: ${recentDate} |
             Expiration Date: ${deadline} 
             </div>
-            <input type="checkbox">
+            <input class="checkbox" type="checkbox">
             <p>${task.task}</p>
             <i class="fas fa-trash-alt"></i>
         `;
 
         itemList.append(listItem);
-        
+
+        UI.checkboxHandler();
+
+    }
+
+    static checkboxHandler(){
+        const checkboxes = document.querySelectorAll('.checkbox');
+        const lastElementIndex = checkboxes.length - 1;
+        const lastCheckbox = checkboxes[lastElementIndex];
+
+        lastCheckbox.addEventListener('click', (e) => {
+            e.target.nextElementSibling.classList.toggle('done');
+        });
     }
 
     static clearInput() {
