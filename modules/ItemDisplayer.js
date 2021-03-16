@@ -58,7 +58,7 @@ export default class ItemDisplayer {
     static sortElemntsByText() {
         const elements = document.querySelectorAll('.todo_item');
         const elementsArray = [...elements];
-        
+
         elementsArray.sort((a, b) => {
             const aText = a.querySelector('p').textContent;
             const bText = b.querySelector('p').textContent;
@@ -101,6 +101,50 @@ export default class ItemDisplayer {
         targetList.textContent = '';
         elementsArray.forEach((item) => {
             targetList.append(item);
+        });
+    }
+
+    static filterElementsByText(text) {
+        const elements = document.querySelectorAll('.todo_item');
+        
+        elements.forEach((element) => {
+            const elemText = element.querySelector('p').textContent;
+
+            const isCorrectElementHidden = elemText.includes(text)
+            && element.classList.contains('hide');
+
+            if(isCorrectElementHidden){
+                element.classList.remove('hide');
+            }else if( !elemText.includes(text) ){
+                element.classList.add('hide');
+            }
+        });
+    }
+
+    static filterElementsByDate(date) {
+        const elements = document.querySelectorAll('.todo_item');
+
+        elements.forEach((element) => {
+            const elemDate = element.querySelector('.expiration-date').textContent;
+            
+            const isCorrectElementHidden = elemDate.includes(date)
+            && element.classList.contains('hide');
+
+            if(isCorrectElementHidden){
+                element.classList.remove('hide');
+            }else if( !elemDate.includes(date) ){
+                element.classList.add('hide');
+            }
+        });
+
+    }
+
+    static showAllItems() {
+        const items = document.querySelectorAll('.todo_item');
+        items.forEach((item) => {
+            if(item.classList.contains('hide')){
+                item.classList.remove('hide');
+            }
         });
     }
 }

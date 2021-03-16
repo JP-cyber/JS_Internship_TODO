@@ -101,9 +101,9 @@ export default class UI {
         modal.classList.toggle('hide');
     }
 
-    static resetSelect() {
-        const select = document.querySelector('#sort-select');
+    static resetSelect(selector) {
+        const select = document.querySelector(selector);
 
-        select.value = 'Sort By';
+        select.value = select.querySelector('option').textContent;
     }
 }
