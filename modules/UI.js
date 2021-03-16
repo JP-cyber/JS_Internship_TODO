@@ -46,7 +46,8 @@ export default class UI {
 
     static checkboxHandler(){
         const checkboxes = document.querySelectorAll('.checkbox');
-        const lastCheckbox = checkboxes[checkboxes.length - 1];
+        const lastElementIndex = checkboxes.length - 1;
+        const lastCheckbox = checkboxes[lastElementIndex];
 
         lastCheckbox.addEventListener('click', (e) => {
             e.target.nextElementSibling.classList.toggle('done');
