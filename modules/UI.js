@@ -51,7 +51,8 @@ export default class UI {
 
     static editButtonHandler() {
         const editBtns = document.querySelectorAll('.edit');
-        const lastEditBtn = editBtns[editBtns.length - 1];
+        const lastElementIndex = editBtns.length - 1;
+        const lastEditBtn = editBtns[lastElementIndex];
 
         lastEditBtn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -62,7 +63,8 @@ export default class UI {
 
     static deleteButtonHandler() {
         const deleteBtns = document.querySelectorAll('.delete');
-        const lastDeleteBtn = deleteBtns[deleteBtns.length - 1];
+        const lastElementIndex = deleteBtns.length - 1;
+        const lastDeleteBtn = deleteBtns[lastElementIndex];
 
         lastDeleteBtn.addEventListener('click', (e) => {
             e.target.parentElement.remove();
@@ -71,7 +73,8 @@ export default class UI {
 
     static checkboxHandler() {
         const checkboxes = document.querySelectorAll('.checkbox');
-        const lastCheckbox = checkboxes[checkboxes.length - 1];
+        const lastElementIndex = checkboxes.length - 1;
+        const lastCheckbox = checkboxes[lastElementIndex];
 
         lastCheckbox.addEventListener('click', (e) => {
             e.target.nextElementSibling.classList.toggle('done');
