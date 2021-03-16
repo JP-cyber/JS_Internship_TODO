@@ -35,16 +35,27 @@ export default class UI {
             </div>
             <input class="checkbox" type="checkbox">
             <p>${task.task}</p>
-            <i class="fas fa-trash-alt"></i>
+            <i class="fas fa-trash-alt delete"></i>
         `;
 
         itemList.append(listItem);
 
         UI.checkboxHandler();
+        UI.deleteButtonHandler();
 
     }
 
-    static checkboxHandler(){
+    static deleteButtonHandler() {
+        const deleteBtns = document.querySelectorAll('.delete');
+        const lastElementIndex = deleteBtns.length - 1;
+        const lastDeleteBtn = deleteBtns[lastElementIndex];
+
+        lastDeleteBtn.addEventListener('click', (e) => {
+            e.target.parentElement.remove();
+        });
+    }
+
+    static checkboxHandler() {
         const checkboxes = document.querySelectorAll('.checkbox');
         const lastElementIndex = checkboxes.length - 1;
         const lastCheckbox = checkboxes[lastElementIndex];
