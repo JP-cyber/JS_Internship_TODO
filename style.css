@@ -26,7 +26,7 @@ header{
     justify-content: space-between;
 }
 .todo_search_form input{
-    width: 80%;
+    width: 60%;
     height: 25px;
     padding-left: 4px;
     border-radius: 3px;
@@ -46,6 +46,18 @@ header{
     line-height: 30px;
     border-radius: 3px;
     font-size: 20px;
+}
+#sort-select{
+    width: 18%;
+    background-color: darkblue;
+    padding-left: 3px;
+    color: #fff;
+    outline: none;
+    border: transparent;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 3px;
+    font-size: 18px;
 }
 .todo_item_list{
     padding-left: 0;
