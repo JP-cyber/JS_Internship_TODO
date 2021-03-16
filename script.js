@@ -2,6 +2,7 @@ import UI from './modules/UI.js';
 import ListItem from './modules/ListItem.js';
 import Validator from './modules/Validator.js';
 import ItemDisplayer from './modules/ItemDisplayer.js';
+import DateHandler from './modules/DateHandler.js';
 
 //Event: diplay task-list
 document.addEventListener('DOMContentLoaded', UI.displayListItems);
@@ -28,7 +29,9 @@ document.querySelector('#modal').addEventListener('click', () => {
 });
 
 //Event: add item to list on "save" button press
-document.querySelector('#add-btn').addEventListener('click', () => {
+document.querySelector('#add-btn').addEventListener('click', (e) => {
+    e.preventDefault();
+
     const task = document.querySelector('#task').value,
           creationDate = document.querySelector('#creation').value,
           expirationDate = document.querySelector('#expiration').value;
@@ -109,4 +112,21 @@ document.querySelector('#display-completed').addEventListener('click', () => {
 //Delete all completed items
 document.querySelector('#clear-completed').addEventListener('click', () => {
     ItemDisplayer.deleteCompletedItems();
+});
+
+//Sort items
+
+document.querySelector('#sort-select').addEventListener('change', (e) => {
+//Sort by text
+
+    if(e.target.value === 'Sort By Text'){
+        ItemDisplayer.sortElemntsByText();
+        UI.resetSelect();
+    }
+//Sort by date
+
+    if(e.target.value === 'Sort By Date'){
+        ItemDisplayer.sortElementsByDate();
+        UI.resetSelect();
+    }
 });

@@ -1,3 +1,5 @@
+import DateHandler from './DateHandler.js';
+
 export default class ItemDisplayer {
     static items = document.getElementsByClassName('todo_item');
 
@@ -51,5 +53,54 @@ export default class ItemDisplayer {
                 item.remove();
             }
         }
+    }
+
+    static sortElemntsByText() {
+        const elements = document.querySelectorAll('.todo_item');
+        const elementsArray = [...elements];
+        
+        elementsArray.sort((a, b) => {
+            const aText = a.querySelector('p').textContent;
+            const bText = b.querySelector('p').textContent;
+
+            if(aText < bText){
+                return -1;
+            }else if(aText > bText){
+                return 1;
+            }
+            return 0;
+        });
+
+        const targetList = document.querySelector('.todo_item_list');
+        targetList.textContent = '';
+        elementsArray.forEach((item) => {
+            targetList.append(item);
+        });
+    }
+
+    static sortElementsByDate() {
+        const elements = document.querySelectorAll('.todo_item');
+        const elementsArray = [...elements];
+
+        elementsArray.sort((a,b) => {
+            const aDate = a.querySelector('.expiration-date').textContent;
+            const bDate = b.querySelector('.expiration-date').textContent;
+            
+            const aTime = DateHandler.getTimeFromStr(aDate);
+            const bTime = DateHandler.getTimeFromStr(bDate);
+
+            if(aTime > bTime){
+                return 1;
+            }else if(aTime < bTime){
+                return -1;
+            }
+            return 0;
+        });
+
+        const targetList = document.querySelector('.todo_item_list');
+        targetList.textContent = '';
+        elementsArray.forEach((item) => {
+            targetList.append(item);
+        });
     }
 }
