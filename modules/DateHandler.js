@@ -12,4 +12,21 @@ export default class DateHandler {
         const currentTime = date.toLocaleTimeString();
         return currentTime;
     }
+
+    static getTimeFromStr(str){
+        const isStrValid = str.split('.').length === 3;
+        if(isStrValid){
+            const dateObj = new Date();
+            const arr = str.split('.');
+            dateObj.setFullYear(
+                arr[2],
+                arr[1] - 1,
+                +arr[0]
+            );
+            return dateObj.getTime();
+        }
+
+        return 0;
+        
+    }
 }
