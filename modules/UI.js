@@ -30,11 +30,12 @@ export default class UI {
         listItem.classList.add('todo_item');
         listItem.innerHTML = `
             <div class="date">
-            Creation Date: ${recentDate} |
-            Expiration Date: ${deadline} 
+            Creation Date: <span class="recent-date">${recentDate}</span> |
+            Expiration Date: <span class="expiration-date">${deadline}</span> 
             </div>
             <input class="checkbox" type="checkbox">
             <p>${task.task}</p>
+            <i class="fas fa-pen edit" ></i>
             <i class="fas fa-trash-alt delete"></i>
         `;
 
@@ -42,7 +43,22 @@ export default class UI {
 
         UI.checkboxHandler();
         UI.deleteButtonHandler();
+        UI.editButtonHandler();
 
+    }
+
+    static currentElement = null;
+
+    static editButtonHandler() {
+        const editBtns = document.querySelectorAll('.edit');
+        const lastElementIndex = editBtns.length - 1;
+        const lastEditBtn = editBtns[lastElementIndex];
+
+        lastEditBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            UI.toggleModal('.modal-edit');
+            UI.currentElement = e.target.parentElement;
+        });
     }
 
     static deleteButtonHandler() {
@@ -70,8 +86,8 @@ export default class UI {
         input.value = '';
     }
 
-    static clearModalInputs() {
-        const modalInputs = document.querySelector('.modal-content')
+    static clearModalInputs(selector) {
+        const modalInputs = document.querySelector(selector)
         .querySelectorAll('input');
 
         modalInputs.forEach((input) => {
@@ -80,8 +96,8 @@ export default class UI {
 
     }
 
-    static toggleModal() {
-        const modal = document.querySelector('.modal');
+    static toggleModal(selector) {
+        const modal = document.querySelector(selector);
         modal.classList.toggle('hide');
     }
 }

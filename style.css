@@ -63,14 +63,20 @@ header{
     margin-top: 20px;
     margin-left: 10px;
 }
-.todo_item p {
+.todo_item p{
     margin-left: 5px;
 }
-.todo_item i{
+.todo_item .delete{
     color:tomato;
-    float: right;
     position: absolute;
     right: 10px;
+    top: 15px;
+    font-size: 20px;
+}
+.todo_item .edit{
+    color:grey;
+    position: absolute;
+    right: 42px;
     top: 15px;
     font-size: 20px;
 }
@@ -82,7 +88,18 @@ header{
     top: 2px;
 }
 
-.modal{
+.modal-add{
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+.modal-edit{
     position: fixed;
     z-index: 1; 
     left: 0;
@@ -122,11 +139,11 @@ header{
     font-size: 20px;
 }
 
-#modal-save{
+.modal-save{
     background-color: lightgreen;
 }
 
-#modal-cancel{
+.modal-cancel{
     background-color:tomato;
 }
 

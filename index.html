@@ -25,7 +25,7 @@
         </ul>
     </div>
 
-    <div class="modal hide">
+    <div class="modal-add hide">
         <form class="modal-content">
             <h1 class="modal-title">Input Data</h1>
             <label for="task">Input Your Task</label>
@@ -34,8 +34,22 @@
             <p><input type="text" id="creation" placeholder="Creation date..."></p>
             <label for="expiration">Input Expiration Date</label>
             <p><input type="text" id="expiration" placeholder="Expiration date..."></p>
-            <button id="modal-save">Save</button>
-            <button id="modal-cancel">Cancel</button>
+            <button id="add-btn" class="modal-save">Save</button>
+            <button class="modal-cancel">Cancel</button>
+        </form>
+    </div>
+
+    <div class="modal-edit hide">
+        <form class="modal-content">
+            <h1 class="modal-title">Edit Data</h1>
+            <label for="task-edit">Input Your Task</label>
+            <p><input type="text" id="task-edit" placeholder="New task..."></p>
+            <label for="creation-edit">Input Creation Date</label>
+            <p><input type="text" id="creation-edit" placeholder="Creation date..."></p>
+            <label for="expiration-edit">Input Expiration Date</label>
+            <p><input type="text" id="expiration-edit" placeholder="Expiration date..."></p>
+            <button id="edit-btn" class="modal-save">Save</button>
+            <button class="modal-cancel">Cancel</button>
         </form>
     </div>
 
