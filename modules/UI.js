@@ -47,7 +47,8 @@ export default class UI {
 
     static deleteButtonHandler() {
         const deleteBtns = document.querySelectorAll('.delete');
-        const lastDeleteBtn = deleteBtns[deleteBtns.length - 1];
+        const lastElementIndex = deleteBtns.length - 1;
+        const lastDeleteBtn = deleteBtns[lastElementIndex];
 
         lastDeleteBtn.addEventListener('click', (e) => {
             e.target.parentElement.remove();
@@ -56,7 +57,8 @@ export default class UI {
 
     static checkboxHandler() {
         const checkboxes = document.querySelectorAll('.checkbox');
-        const lastCheckbox = checkboxes[checkboxes.length - 1];
+        const lastElementIndex = checkboxes.length - 1;
+        const lastCheckbox = checkboxes[lastElementIndex];
 
         lastCheckbox.addEventListener('click', (e) => {
             e.target.nextElementSibling.classList.toggle('done');
